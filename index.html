@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Expense Tracker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="container">
+    <h1>Expense Tracker</h1>
+
+    <section class="card">
+      <h2>Add expense</h2>
+      <form id="expense-form" novalidate>
+        <div class="field">
+          <label for="amount">Amount ($)</label>
+          <input id="amount" name="amount" type="text" inputmode="decimal" placeholder="0.00" autocomplete="off">
+        </div>
+        <div class="field">
+          <label for="category">Category</label>
+          <select id="category" name="category"></select>
+        </div>
+        <div class="field">
+          <label for="date">Date</label>
+          <input id="date" name="date" type="date">
+        </div>
+        <div class="field field-wide">
+          <label for="note">Note</label>
+          <input id="note" name="note" type="text" maxlength="200" placeholder="Optional">
+        </div>
+        <button type="submit" class="primary">Add</button>
+      </form>
+      <ul id="form-errors" class="errors" role="alert" hidden></ul>
+    </section>
+
+    <section class="card">
+      <div class="list-header">
+        <h2>Expenses</h2>
+        <label class="filter">
+          Category
+          <select id="filter">
+            <option value="All">All</option>
+          </select>
+        </label>
+      </div>
+
+      <div class="total">
+        <span id="total-label">Total (All)</span>
+        <strong id="total-amount">$0.00</strong>
+      </div>
+
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Category</th>
+              <th>Note</th>
+              <th class="num">Amount</th>
+              <th><span class="visually-hidden">Actions</span></th>
+            </tr>
+          </thead>
+          <tbody id="expense-list"></tbody>
+        </table>
+      </div>
+      <p id="empty-message" class="empty">No expenses yet.</p>
+    </section>
+  </main>
+
+  <script src="calc.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
